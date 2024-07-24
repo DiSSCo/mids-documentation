@@ -86,7 +86,7 @@ def terms():
     return render_template('termlist.html',
                            headerMarkdown=Markup(marked_text),
                            ltcCls=ltcCls,
-                           terms=terms,
+                           terms=terms_df,
                            sssom=sssom_df,
                            termsByClass=termsByClass,
                            pageTitle='MIDS Information Elements',

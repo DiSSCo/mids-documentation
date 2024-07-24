@@ -35,7 +35,7 @@
                             <th class="col-w-4"></th>
                         </tr>
                         {%  for idx2,v2 in sssom.iterrows() %}
-                            {%  if v2['term_iri'] == v['term_iri'] and v2['subject_category'] == v['class_name'] %}
+                            {%  if v2['informationElement_localName'] == v['informationElement_localName'] and v2['subject_category'] == v['mids_category'] %}
                                 <tr class="accordion-toggle collapsed"
                                     id="accordion{{ idx }}"
                                     data-bs-toggle="collapse"
@@ -58,7 +58,7 @@
                                                     IRI: <a href='https://w3id.org/sssom/object_category'>https://w3id.org/sssom/object_category</a>"
                                                     data-bs-title="sssom:object_category <span class='poplink close');'>x</span>"></i>
                                             </th>
-                                            <td>{{  v2['object_category'] }}</td>
+                                            <td>{{  v2['predicate_label'] }}</td>
                                         </tr>
                                         <tr>
                                             <th>Object Type
@@ -67,7 +67,7 @@
                                                 IRI: <a href='https://w3id.org/sssom/object_type'>https://w3id.org/sssom/object_type</a>"
                                                 data-bs-title="sssom:object_type <span class='poplink close');'>x</span>"></i>
                                             </th>
-                                            <td>{{  v2['object_type'] }}</td>
+                                            <td>{{  v2['object_id'] }}</td>
                                         </tr>
                                         <tr>
                                             <th>Author</th>
