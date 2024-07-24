@@ -2,13 +2,13 @@ from pathlib import Path
 import pandas as pd
 import shutil
 
-namespace = 'ltc'
+namespace = 'mids'
 current_dir = Path().absolute()
 path = current_dir.parent.parent.parent
 
 # 1.  Create copy of source csv
-sssom_src = str(path)+'/data/ltc/ltc-source/mapping/ltc_sssom_mapping.csv'
-sssom_csv = str(path)+'/data/ltc/ltc-docs/ltc-sssom.csv'
+sssom_src = str(path)+'/data/mids/mids-source/mapping/ltc_sssom_mapping.csv'
+sssom_csv = str(path)+'/data/mids/mids-docs/mids-sssom.csv'
 shutil.copy(sssom_src, sssom_csv)
 
 sssom_df = pd.read_csv(sssom_csv, encoding='utf8')

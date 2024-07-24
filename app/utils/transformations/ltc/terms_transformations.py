@@ -2,22 +2,22 @@ from pathlib import Path
 import pandas as pd
 import shutil
 
-namespace = 'ltc'
+namespace = 'mids'
 current_dir = Path().absolute()
 path = current_dir.parent.parent.parent
 
 # -------------------------------------------------------
 # Create copies
-term_src = str(path)+'/data/ltc/ltc-source/ltc_terms_source.csv'
-term_csv = str(path)+'/data/ltc/ltc-docs/ltc-termlist.csv'
+term_src = str(path)+'/data/mids/mids-source/ltc_terms_source.csv'
+term_csv = str(path)+'/data/mids/mids-docs/mids-termlist.csv'
 shutil.copy(term_src, term_csv)
 
-ns_src = str(path)+'/data/ltc/ltc-source/ltc_namespaces.csv'
-ns_csv = str(path)+'/data/ltc/ltc-docs/ltc-namespaces.csv'
+ns_src = str(path)+'/data/mids/mids-source/ltc_namespaces.csv'
+ns_csv = str(path)+'/data/mids/mids-docs/mids-namespaces.csv'
 shutil.copy(ns_src, ns_csv)
 
-dt_src = str(path)+'/data/ltc/ltc-source/ltc_datatypes.csv'
-dt_csv = str(path)+'/data/ltc/ltc-docs/ltc-datatypes.csv'
+dt_src = str(path)+'/data/mids/mids-source/ltc_datatypes.csv'
+dt_csv = str(path)+'/data/mids/mids-docs/mids-datatypes.csv'
 shutil.copy(dt_src, dt_csv)
 
 # -------------------------------------------------------
@@ -48,8 +48,8 @@ ns_df.rename(columns={'curie': 'namespace', 'value': 'namespace_iri'}, inplace=T
 # Add colon to namespace for merger with terms csv
 ns_df['namespace'] = ns_df['namespace'].astype(str) + ':'
 
-if 'ltc:' not in ns_df.values:
-    ltc_row = {"namespace": "ltc:", "namespace_iri": "http://rs.tdwg.org/ltc/terms/"}
+if 'mids:' not in ns_df.values:
+    ltc_row = {"namespace": "mids:", "namespace_iri": "http://rs.tdwg.org/ltc/terms/"}
     ns_df = pd.concat([ns_df, pd.DataFrame([ltc_row])], ignore_index=True)
 
 ns_df.to_csv(ns_csv, index=False, encoding='utf8')

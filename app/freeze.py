@@ -8,15 +8,15 @@ import pandas as pd
 app = Flask(__name__, template_folder='templates')
 freezer = Freezer(app)
 
-#app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = 'build'
 app.config['FREEZER_RELATIVE_URLS'] = True
-#app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
+
 
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html',
                            pageTitle='404 Error'), 404
+
 
 @app.errorhandler(500)
 def internal_error(error):
@@ -28,7 +28,7 @@ def internal_error(error):
 
 @app.route('/')
 def home():
-    home_mdfile = 'md/ltc/home-content.md'
+    home_mdfile = 'md/mids/home-content.md'
     marked_text = ''
     with open(home_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read())
@@ -37,21 +37,21 @@ def home():
                            title='Home',
                            slug='home')
 
+
 @app.route('/terms/')
 def terms():
-    header_mdfile = 'md/ltc/termlist-header.md'
-    marked_text = ''
+    header_mdfile = 'md/mids/termlist-header.md'
     with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
     # Terms
-    terms_csv = 'data/ltc/ltc-docs/ltc-termlist.csv'
+    terms_csv = 'data/mids/mids-docs/mids-element-list.csv'
     terms_df = pd.read_csv(terms_csv)
 
-    skoscsv = 'data/ltc/ltc-docs/ltc-skos.csv'
+    skoscsv = 'data/mids/mids-docs/mids-skos.csv'
     skos_df = pd.read_csv(skoscsv)
 
-    sssomcsv = 'data/ltc/ltc-docs/ltc-sssom.csv'
+    sssomcsv = 'data/mids/mids-docs/mids-sssom.csv'
     sssom_df = pd.read_csv(sssomcsv)
 
     terms_skos_df1 = pd.merge(
@@ -96,15 +96,16 @@ def terms():
                            slug='termlist'
                            )
 
+
 @app.route('/quick-reference/')
 def quickReference():
-    header_mdfile = 'md/ltc/quick-reference-header.md'
+    header_mdfile = 'md/mids/quick-reference-header.md'
     marked_text = ''
     with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read())
 
     # Quick Reference Main
-    df = pd.read_csv('data/ltc/ltc-docs/ltc-termlist.csv', encoding='utf8')
+    df = pd.read_csv('data/mids/mids-docs/mids-element-list.csv', encoding='utf8')
     df['examples'] = df['examples'].str.replace(r'"', '')
     df['definition'] = df['definition'].str.replace(r'"', '')
     df['usage'] = df['usage'].str.replace(r'"', '')
@@ -129,7 +130,7 @@ def quickReference():
     required_df = terms_df.loc[(terms_df['is_required'] == True) &
                                (terms_df['rdf_type'] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property')]
     required_classes_df = terms_df.loc[(terms_df['is_required'] == True) &
-                               (terms_df['rdf_type'] == 'http://www.w3.org/2000/01/rdf-schema#Class')]
+                                       (terms_df['rdf_type'] == 'http://www.w3.org/2000/01/rdf-schema#Class')]
     return render_template('quick-reference.html',
                            headerMarkdown=Markup(marked_text),
                            grplists=grplists,
@@ -140,13 +141,14 @@ def quickReference():
                            requiredClasses=required_classes_df
                            )
 
+
 @app.route('/resources/')
 def docResources():
-    header_mdfile = 'md/ltc/resources-header.md'
+    header_mdfile = 'md/mids/resources-header.md'
     with open(header_mdfile, encoding="utf8") as f:
         marked_text = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
-    sssom_mdfile = 'md/ltc/sssom-reference.md'
+    sssom_mdfile = 'md/mids/sssom-reference.md'
     with open(sssom_mdfile, encoding="utf8") as f:
         marked_sssom = markdown2.markdown(f.read(), extras=["tables", "fenced-code-blocks"])
 
@@ -157,8 +159,6 @@ def docResources():
                            title='Resources',
                            slug='resources'
                            )
-
-
 
 
 if __name__ == "__main__":

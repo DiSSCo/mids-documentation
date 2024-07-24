@@ -323,20 +323,20 @@ a.property {
 }
 
 .btn-outline-primary {
-    color: #560D59;
-    border-color: #560D59;
+    color: #26590d;
+    border-color: #26590d;
 		font-weight: 500;
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-	background-color: #560D59;
+	background-color: #26590d;
 	color: #FFFFFF;
 	font-weight: 500;
 
 }
 nav.navbar.bg-ltc,
 .header.bg-no-image {
-    background-color: #560D59;
+    background-color: #26590d;
 }
 main.ltc-content .toc ul {
 	list-style-type: none;
@@ -420,7 +420,7 @@ a.th-collapser:hover {
 }
 .th-collapser i.fa {
 	background: transparent;
-	color: #560D59;
+	color: #26590d;
 	font-size: 18px;
 	margin-left: 10px;
 }
@@ -471,7 +471,7 @@ table.nested-table tbody tr td:first-of-type {
 
 /* Footer --------------------------------------------- */
 body > footer {
-	background-color: #560D59;
+	background-color: #26590d;
 }
 .footer-logo {
 	max-width: 150px;
@@ -489,7 +489,7 @@ body > footer p a {
 }
 /* Testing Collapse */
 td.indicator-td {
-	color: #560D59;
+	color: #26590d;
 	text-align: center;
 }
 table.table-sssom tbody tr th {
@@ -504,7 +504,7 @@ table.table-sssom tbody tr td.indicator-td {
 	test-align: center;
 }
 table.table-sssom tbody tr th.col-w-4:hover {
-	background-color: #560D59;
+	background-color: #26590d;
 	color: #FFFFFF;
 }
 table.table-sssom tbody tr th.col-w-16  {
@@ -543,7 +543,7 @@ table.table-sssom tbody table.nested-table tbody tr th {
 	border-bottom: none;
 }
 th.popover-container .popover .popover-header {
-	background-color: #560D59;
+	background-color: #26590d;
 	color: #FFFFFF;
 }
 th.popover-container .popover .popover-header,
@@ -743,7 +743,7 @@ Original:#043B58;
 Red: #8C3515
 Green: #235900
 Green 2: #006653
-Purple: #560D59
+Purple: #26590d
 */
 /* Fullscreen */
 .mermaid {
@@ -795,7 +795,7 @@ Purple: #560D59
 /* Back to Top */
 
   .back-to-top {
-    background-color: #560D59;
+    background-color: #26590d;
     color: #FFFFFF;
     opacity: 0;
     transition: opacity .6s ease-in-out;
