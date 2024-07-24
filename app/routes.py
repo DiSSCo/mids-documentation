@@ -1,9 +1,9 @@
-from app import app
-from flask import render_template, request, jsonify
+from flask import Flask, render_template
 from markupsafe import Markup
 import markdown2
 import pandas as pd
 
+app = Flask(__name__)
 
 @app.errorhandler(404)
 def page_not_found(error):
