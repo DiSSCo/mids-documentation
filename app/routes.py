@@ -58,7 +58,7 @@ def terms():
         terms_df, skos_df[['informationElement_localName', 'skos_mappingRelation', 'related_termName']], on=['informationElement_localName'], how='left'
     )
     terms_skos_df = pd.merge(
-        terms_skos_df1, sssom_df[['informationElement_localName', 'predicate_label', 'object_id', 'object_category', 'object_label',
+        terms_skos_df1, sssom_df[['informationElement_localName', 'predicate_id', 'object_id', 'object_category',
                                   'mapping_justification']],
         on=['informationElement_localName'], how='left'
     )

@@ -7,11 +7,12 @@ current_dir = Path().absolute()
 path = current_dir.parent.parent.parent
 
 # 1.  Create copy of source csv
-sssom_src = str(path)+'/data/mids/mids-source/mapping/ltc_sssom_mapping.csv'
+#sssom_src = str(path)+'/data/mids/mids-source/mapping/ltc_sssom_mapping.csv'
 sssom_csv = str(path)+'/data/mids/mids-docs/mids-sssom.csv'
-shutil.copy(sssom_src, sssom_csv)
+#shutil.copy(sssom_src, sssom_csv)
 
-sssom_df = pd.read_csv(sssom_csv, encoding='utf8')
+sssom_df = pd.read_csv(sssom_csv, encoding='utf8', sep='\t')
+sssom_df.columns = sssom_df.columns.str.replace(r'^.*?:', '', regex=True)
 # Create Term Column with Machine-readable version of the term
 sssom_df['term_local_name'] = sssom_df['subject_id']
 sssom_df.rename(columns={'term_uri': 'term_iri'}, inplace=True)
