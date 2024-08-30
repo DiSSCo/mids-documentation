@@ -1,6 +1,8 @@
 # StaDocGen - *Development*
 **Development Version** of the Web-based Documentation Generator for TDWG Data Standards  
-Built using Python Flask, the application transforms a set of CSV files into data standards documentation pages. This application is currently under active development. The current iteration of the application is being used to generate the docs here: [https://tdwg.github.io/ltc](https://tdwg.github.io/ltc). The main application is located under StaDocGen. Ltc is a legacy application that was migrated from the Latimer Core repository.
+Built using Python Flask, the application transforms a set of CSV files into data standards documentation pages. 
+This application is currently under active development. 
+The main application is located under StaDocGen.
 
 ## Application Specifications
 
@@ -24,7 +26,7 @@ Built using Python Flask, the application transforms a set of CSV files into dat
 │   │   │   └───ltc-source  | Original source data files
 │   │   │   └───ltc-source  | Tabular data schemas generated from the source CSV files (not part of the core stadocgen app)
 │   ├───md          | Specific content blocks in markdown format 
-│   │   └───ltc     | Markdown associated with Latimer Core Documentation
+│   │   └───mids     | Markdown associated with MIDS Documentation
 │   │   └───tdwg    | Latest versions of official TDWG documentation markdown content, these files are then customized for each standard
 │   ├───static      | Static assets (css, js, icons)
 │   │   └───assets  | Standard static assets (do not change)
@@ -71,8 +73,7 @@ I highly recommend using ConEmu https://conemu.github.io/ or Git Bash. You can a
 * Copy the entire contents of the build directory (/app/build) to the docs folder in the target repository
 * Publish changes using the appropriate GitHub workflow
 
-In Windows, robocopy can be used to replace files in a target directory with a source. The following command will accomplish this task (before using, make sure to update the paths)  
-robocopy C:\repos\stadocgen\app\build G:\repos\ltc\docs /mir
+
 Once the new build is pushed to the target repo, continue the standard protocol for updating a repository (create new branch with updated docs > pull request > approve > merge).  
 
 ## Notes
@@ -88,10 +89,6 @@ files, which is ill-advised. Fortunately, the same problems have not been encoun
 ## App Documentation
 StaDocGen documentation is written and built with Writerside (https://www.jetbrains.com/writerside/). The documentation remains a work in progress. When ready, it will be published to the 
 docs build directory for presentation/publication.
-
-LtC Pipeline
-Source: https://github.com/ben-norton/stadocgen/tree/main/app/build
-Target: https://github.com/tdwg/ltc/tree/main/docs
 
 #### Contact
 Ben Norton

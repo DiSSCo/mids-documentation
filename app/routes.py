@@ -85,7 +85,6 @@ def terms():
 
     return render_template('termlist.html',
                            headerMarkdown=Markup(marked_text),
-                           ltcCls=ltcCls,
                            terms=terms_df,
                            sssom=sssom_df,
                            termsByClass=termsByClass,
@@ -122,7 +121,7 @@ def quickReference():
     return render_template('quick-reference.html',
                            headerMarkdown=Markup(marked_text),
                            grplists=grplists,
-                           pageTitle='Latimer Core Quick Reference Guide',
+                           pageTitle='MIDS Quick Reference Guide',
                            title='Quick Reference',
                            slug='quick-reference'
                            )
@@ -143,7 +142,7 @@ def docResources():
     return render_template('resources.html',
                            headerMarkdown=Markup(marked_text),
                            sssomRefMarkdown=Markup(marked_sssom),
-                           pageTitle='Latimer Core Resources',
+                           pageTitle='MIDS Resources',
                            title='Resources',
                            slug='resources'
                            )
