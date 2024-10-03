@@ -2,8 +2,8 @@ The need to rapidly digitise millions of specimens in Natural History Collection
 
 Getting started[](#getting-started)
 -----------------------------------
-*   [Normative Term List](terms/)
-*   [Quick Reference Guide](quick-reference/)
+*   [Normative Information Element List](https://dev.mids.dissco.tech/terms)
+*   [Quick Reference Guide](https://dev.mids.dissco.tech/quick-reference)
 *   [SSSOM Mapping](https://docs.google.com/spreadsheets/d/1ydNC8DHnrAPhPhTEQ7RmAztKJjJQCOiyX1wYl0SbFkU/edit?usp=sharing)
 *   Provide feedback through a [github issue](https://github.com/tdwg/mids/issues)
 
